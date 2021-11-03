@@ -1,0 +1,2317 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Wein DB API",
+    "contact": {
+      "name": "Steven McCormack",
+      "url": "https://www.smc-communication.de",
+      "email": ""
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/Account": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Gets information regarding the logged in account",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Account/ChangePassword": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Change the current user password",
+        "requestBody": {
+          "description": "Change Password model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get a list of all users",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User/Lock/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Lock a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to lock",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user to lock",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User/Unlock/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Unlock a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to unlock",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user to unlock",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user to delete",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User/Activate/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Activate a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to activate",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user to activate",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Admin/User/ToggleAdmin/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Toggle Admin Status of a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to change",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user to change",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/GrapeVariety": {
+      "get": {
+        "tags": [
+          "GrapeVariety"
+        ],
+        "summary": "List all grape varieties",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GrapeVariety"
+        ],
+        "summary": "Create new grape variety",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrapeVarietyCreateModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/GrapeVarietyCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "GrapeVariety"
+        ],
+        "summary": "Update grape variety details",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrapeVarietyEditModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/GrapeVarietyEditModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/GrapeVariety/{id}": {
+      "get": {
+        "tags": [
+          "GrapeVariety"
+        ],
+        "summary": "Get grape veriety details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrapeVarietyGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "GrapeVariety"
+        ],
+        "summary": "Delete grape veriety",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of grape veriety to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "id of grape veriety to delete",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Region": {
+      "get": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "List all regions",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "Create new region",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegionCreateModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RegionCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "Update region details",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegionEditModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RegionEditModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Region/{id}": {
+      "get": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "Get region details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "Delete region",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of region to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "id of region to delete",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Register": {
+      "post": {
+        "tags": [
+          "Register"
+        ],
+        "summary": "Register a new user",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Token": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "User login\r\nvia password requires username, password and grant_type=password\r\nvia refresh token requires refresh_token and grant_type=refresh_token",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "grant_type",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "refresh_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiLoginResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiLoginResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Vendor": {
+      "get": {
+        "tags": [
+          "Vendor"
+        ],
+        "summary": "List all vendors",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vendor"
+        ],
+        "summary": "Create new vendor",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorCreateModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vendor"
+        ],
+        "summary": "Update vendor details",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorEditModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorEditModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Vendor/{id}": {
+      "get": {
+        "tags": [
+          "Vendor"
+        ],
+        "summary": "Get vendor details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendorGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Vendor"
+        ],
+        "summary": "Delete vendor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of vendor to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "id of vendor to delete",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/Wine": {
+      "get": {
+        "tags": [
+          "Wine"
+        ],
+        "summary": "List all wines",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/WineType": {
+      "get": {
+        "tags": [
+          "WineType"
+        ],
+        "summary": "List all wine types",
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelListWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelListWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "WineType"
+        ],
+        "summary": "Create new wine type",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WineTypeCreateModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/WineTypeCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "WineType"
+        ],
+        "summary": "Update wine type details",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WineTypeEditModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/WineTypeEditModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    },
+    "/WineType/{id}": {
+      "get": {
+        "tags": [
+          "WineType"
+        ],
+        "summary": "Get wine type details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of wine type to query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Id of wine type to query",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WineTypeGetModelWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "WineType"
+        ],
+        "summary": "Delete wine type",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of wine type to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Id of wine type to delete",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was processed without error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectWeinDbResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Model invalid"
+          },
+          "401": {
+            "description": "Missing / invalid auth"
+          },
+          "500": {
+            "description": "An error occurred"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Rating": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stars": {
+            "type": "number",
+            "format": "float"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InventoryItem": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bottles": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "ratings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rating"
+            },
+            "nullable": true
+          },
+          "inventory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InventoryItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AccountGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangePasswordModel": {
+        "required": [
+          "newPassword",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "newPasswordMatch": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AdminUserGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "loginRequired": {
+            "type": "boolean"
+          },
+          "approvedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "approvedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "refreshTokenExpires": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AdminUserGetModelListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdminUserGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AdminUserGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AdminUserGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVarietyGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVarietyGetModelListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrapeVarietyGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVarietyCreateModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVarietyGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/GrapeVarietyGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVarietyEditModel": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionGetModelListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegionGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionCreateModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/RegionGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionEditModel": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRegisterModel": {
+        "required": [
+          "email",
+          "firstname",
+          "lastname",
+          "password",
+          "salutation"
+        ],
+        "type": "object",
+        "properties": {
+          "salutation": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "passwordMatch": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiLoginResult": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "expires_in": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "token_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "refresh_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserGetModel"
+          },
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendorGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendorGetModelListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendorGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendorCreateModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendorGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/VendorGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendorEditModel": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Region": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Vineyard": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "$ref": "#/components/schemas/Region"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineVendor": {
+        "type": "object",
+        "properties": {
+          "wineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrapeVariety": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "wines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Wine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Wine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vineyardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vineyard": {
+            "$ref": "#/components/schemas/Vineyard"
+          },
+          "wineTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wineType": {
+            "$ref": "#/components/schemas/WineType"
+          },
+          "vintage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WineVendor"
+            },
+            "nullable": true
+          },
+          "ratings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rating"
+            },
+            "nullable": true
+          },
+          "grapeVarieties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrapeVariety"
+            },
+            "nullable": true
+          },
+          "isCuvée": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Wine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineTypeGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineTypeGetModelListWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WineTypeGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineTypeCreateModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineTypeGetModelWeinDbResult": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "errormessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/WineTypeGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WineTypeEditModel": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
