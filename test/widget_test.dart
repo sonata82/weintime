@@ -7,24 +7,36 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
+import 'package:weintime/auth_service.dart';
 
 import 'package:weintime/main.dart';
+import 'package:weintime/swagger_generated_code/wein_db.swagger.dart';
 
+import 'widget_test.mocks.dart';
+
+@GenerateMocks([WeinDb, AuthService])
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Login page is available smoke test', (WidgetTester tester) async {
+    var mockAuthService = MockAuthService();
+
+    when(mockAuthService.isLoggedIn()).thenAnswer((_) async => false);
+
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            Provider<WeinDb>(create: (_) => MockWeinDb()),
+            Provider<AuthService>.value(value: mockAuthService)
+          ],
+          child: MyApp()
+        ));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    verify(mockAuthService.isLoggedIn());
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Username'), findsOneWidget);
   });
 }
