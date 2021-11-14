@@ -1,5 +1,5 @@
 # weintime
-
+[![Build Status](https://app.travis-ci.com/sonata82/weintime.svg?branch=main)](https://app.travis-ci.com/github/sonata82/weintime)
 WeinTime
 
 ## Getting Started
