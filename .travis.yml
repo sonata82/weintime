@@ -10,7 +10,7 @@ before_deploy:
 - ./flutter/bin/flutter build web
 deploy:
   provider: pages
-  local_dir: web
+  local_dir: build/web
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
