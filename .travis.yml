@@ -6,3 +6,13 @@ install:
 - ./flutter/bin/flutter doctor
 script:
 - ./flutter/bin/flutter test
+before_deploy:
+- ./flutter/bin/flutter build web
+deploy:
+  provider: pages
+  local_dir: web
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: gh-pages
