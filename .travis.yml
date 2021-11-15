@@ -7,7 +7,7 @@ install:
 script:
 - ./flutter/bin/flutter test
 before_deploy:
-- ./flutter/bin/flutter build web --release --base-href 'weintime'
+- ./flutter/bin/flutter build web --release --base-href '/weintime/'
 deploy:
   provider: pages
   local_dir: build/web
